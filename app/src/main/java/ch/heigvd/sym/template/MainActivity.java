@@ -2,10 +2,10 @@
  * File     : MainActivity.java
  * Project  : TemplateActivity
  * Author   : Markus Jaton 2 juillet 2014
- * 			  Fabien Dutoit 11 juillet 2016
+ * 			  Fabien Dutoit 20 septembre 2016
  *            IICT / HEIG-VD
  *                                       
- * mailto:markus.jaton@heig-vd.ch
+ * mailto:fabien.dutoit@heig-vd.ch
  * 
  * This piece of code reads a [email_account / password ] combination.
  * It is used as a template project for the SYM module element given at HEIG-VD
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 				 * combination given is valid or not
 				 */
 				String mail = email.getText().toString();
-				String passwd = ""; //TODO read password from EditText
+				String passwd = null; //TODO read password from EditText
 				if (isValid(mail, passwd)) {
 					/* Ok, valid combination, do something or launch another activity...
 					 * The current activity could be finished, but it is not mandatory.
