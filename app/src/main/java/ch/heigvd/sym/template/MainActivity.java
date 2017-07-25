@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 		});
 	}
 	
-	protected boolean isValid(String mail, String passwd) {
+	private boolean isValid(String mail, String passwd) {
         if(mail == null || passwd == null) {
             Log.w(TAG, "isValid(mail, passwd) - mail and passwd cannot be null !");
             return false;
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 // dialog close automatically
 	        }
 	     });
-	    alertbd.show();
+	    alertbd.create().show();
 	}
 	
 }
