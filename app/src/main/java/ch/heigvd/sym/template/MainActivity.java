@@ -1,8 +1,8 @@
-/**
+/*
  * File     : MainActivity.java
  * Project  : TemplateActivity
  * Author   : Markus Jaton 2 juillet 2014
- * 			  Fabien Dutoit 20 septembre 2016
+ * 			  Fabien Dutoit 28 août 2018
  *            IICT / HEIG-VD
  *                                       
  * mailto:fabien.dutoit@heig-vd.ch
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
 		setContentView(R.layout.authent);
 
 		// Link to GUI elements
-        this.email      = (EditText) findViewById(R.id.email);
-        this.signIn     = (Button)   findViewById(R.id.buttOk);
+        this.email      = findViewById(R.id.email);
+        this.signIn     = findViewById(R.id.buttOk);
 
 		// Then program action associated to "Ok" button
 		signIn.setOnClickListener(new OnClickListener(){
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         alertbd.setIcon(android.R.drawable.ic_dialog_alert);
 		alertbd.setTitle(R.string.wronglogin);
 	    alertbd.setMessage(R.string.wrong);
-	    alertbd.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	    alertbd.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
 	            // we do nothing...
                 // dialog close automatically
