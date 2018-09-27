@@ -30,11 +30,14 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     // GUI elements
 	private EditText email      = null;
+	private EditText password 	= null;
     private Button   signIn     = null;
 
 	@Override
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 		// Link to GUI elements
         this.email      = findViewById(R.id.email);
+        this.password	= findViewById(R.id.password);
         this.signIn     = findViewById(R.id.buttOk);
 
 		// Then program action associated to "Ok" button
@@ -70,31 +75,46 @@ public class MainActivity extends AppCompatActivity {
 				 */
 				String mail = email.getText().toString();
 				String passwd = null; //TODO read password from EditText
-				if (isValid(mail, passwd)) {
-					/* Ok, valid combination, do something or launch another activity...
-					 * The current activity could be finished, but it is not mandatory.
-					 * To launch activity MyActivity.class, try something like :
-					 * 
-					 * 			Intent intent = new Intent(this, ch.heigvd.sym.MyActivity.class);
-					 * 			intent.putExtra("emailEntered", mail);
-					 *			intent.putExtra("passwordGiven", passwd);
-					 *			this.startActivity(intent); 
-					 *
-					 * Alternately, you could also startActivityForResult if you are awaiting a result.
-					 * In the latter case, you have to indicate an int parameter to identify MyActivity
-					 * 
-					 * If you haven't anything more to do, you may finish()...
-					 * But just display a small message before quitting...
-					 */
-					Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
-					finish();
-				} else {
-					// Wrong combination, display pop-up dialog and stay on login screen
-					showErrorDialog(mail, passwd);
+
+				if(!isValidMail(mail)){
+					Toast.makeText(MainActivity.this, getResources().getString(R.string.fakeMail), Toast.LENGTH_LONG).show();
+				}
+				else{
+					if (isValid(mail, passwd)) {
+						/* Ok, valid combination, do something or launch another activity...
+						 * The current activity could be finished, but it is not mandatory.
+						 * To launch activity MyActivity.class, try something like :
+						 *
+						 * 			Intent intent = new Intent(this, ch.heigvd.sym.MyActivity.class);
+						 * 			intent.putExtra("emailEntered", mail);
+						 *			intent.putExtra("passwordGiven", passwd);
+						 *			this.startActivity(intent);
+						 *
+						 * Alternately, you could also startActivityForResult if you are awaiting a result.
+						 * In the latter case, you have to indicate an int parameter to identify MyActivity
+						 *
+						 * If you haven't anything more to do, you may finish()...
+						 * But just display a small message before quitting...
+						 */
+						Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
+						finish();
+					} else {
+						// Wrong combination, display pop-up dialog and stay on login screen
+						showErrorDialog(mail, passwd);
+						email.setText("");
+						password.setText("");
+					}
 				}
 			}
 			
 		});
+	}
+
+	private boolean isValidMail(String mail){
+		if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
+			return false;
+		}
+		return true;
 	}
 	
 	private boolean isValid(String mail, String passwd) {
@@ -102,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
             Log.w(TAG, "isValid(mail, passwd) - mail and passwd cannot be null !");
             return false;
         }
+
 		// Return true if combination valid, false otherwise
 		return (mail.equals(validEmail) && passwd.equals(validPassword));
 	}
