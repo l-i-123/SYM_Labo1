@@ -26,6 +26,7 @@
 package ch.heigvd.sym.template;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import ch.heigvd.sym.template.SecondActivity;
 
 import java.util.regex.Pattern;
 
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 				 * combination given is valid or not
 				 */
 				String mail = email.getText().toString();
-				String passwd = null; //TODO read password from EditText
+				String passwd = password.getText().toString(); //TODO read password from EditText
 
 				if(!isValidMail(mail)){
 					Toast.makeText(MainActivity.this, getResources().getString(R.string.fakeMail), Toast.LENGTH_LONG).show();
@@ -96,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
 						 * If you haven't anything more to do, you may finish()...
 						 * But just display a small message before quitting...
 						 */
+						Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+						intent.putExtra("mail", mail);
+						startActivity(intent);
+
 						Toast.makeText(MainActivity.this, getResources().getString(R.string.good), Toast.LENGTH_LONG).show();
 						finish();
 					} else {
