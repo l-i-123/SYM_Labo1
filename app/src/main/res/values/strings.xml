@@ -9,5 +9,9 @@
     <string name="wrong">Email or Password not recognized</string>
     <string name="good">Valid login, welcome !</string>
     <string name="fakeMail">Mail adress invalid</string>
+    <string name="textview1">TextView</string>
+    <string name="textview2">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="description">description</string>
 
 </resources>
