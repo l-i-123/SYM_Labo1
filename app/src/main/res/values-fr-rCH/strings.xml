@@ -8,4 +8,8 @@
     <string name="wrong">Utilisateur ou mot de passe inconnu</string>
     <string name="good">Login valide, Bienvenue !</string>
     <string name="fakeMail">L\'adresse mail est invalide</string>
+    <string name="textview1">a</string>
+    <string name="textview2">a</string>
+    <string name="todo">a</string>
+    <string name="description">a</string>
 </resources>

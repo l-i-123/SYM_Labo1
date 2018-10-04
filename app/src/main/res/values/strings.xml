@@ -3,15 +3,15 @@
 
     <string name="app_name">SYM Template Activity</string>
     <string name="email">E-mail</string>
-    <string name="psw">Password</string>
     <string name="signin">Sign in</string>
     <string name="wronglogin">Login failed</string>
     <string name="wrong">Email or Password not recognized</string>
     <string name="good">Valid login, welcome !</string>
     <string name="fakeMail">Mail adress invalid</string>
-    <string name="textview1">TextView</string>
-    <string name="textview2">TextView</string>
-    <string name="todo">TODO</string>
-    <string name="description">description</string>
+    <string name="psw">password</string>
+    <string name="textview2">a</string>
+    <string name="todo">a</string>
+    <string name="description">a</string>
+    <string name="textview1">a</string>
 
 </resources>

@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -39,14 +41,14 @@ public class SecondActivity extends AppCompatActivity {
 
         this.email = findViewById(R.id.printMail);
         this.imei = findViewById(R.id.PrintIMEI);
-        this.image = findViewById(R.id.imageView);
+        this.image = (ImageView) findViewById(R.id.imageView);
 
         email.setText("email : " + mail);
 
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
-
-
+        
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 225);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 225);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -56,11 +58,14 @@ public class SecondActivity extends AppCompatActivity {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, 225);
+
         }
+
+
         imei.setText("numero IMEI :" + telephonyManager.getDeviceId());
 
-        File imgFile = new  File("/sdcard/Download/perso.jpg");
+        File imgFile = new  File(String.valueOf(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)) + "/perso.jpg");
+
 
         if(imgFile.exists()){
 
