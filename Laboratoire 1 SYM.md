@@ -41,6 +41,36 @@ Pour pouvoir récupérer une information dans la seconde activité et ensuite la
 
 Lorsque l'activité principale est reprise, la méthode onActivittyResult() est appelée. On peut donc utiliser cette méthode pour récupérer la valeur transmise par la seconde activité. Cette méthode reçoit trois paramètres : le request code précédemment défini un code de résultat pour savoir si l'activité s'est terminée correctement ainsi qu'un intend permettant de récupérer les données.
 
+```java
+// Pour démarrer l'activité :
+Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+intent.putExtra("email",mail);
+startActivityForResult(intent,1);
+
+// Pour déposer le résultat de la SecondActivity :
+Intent intent = getIntent();
+intent.putExtra("emei", str_emei);
+setResult(RESULT_OK, intent);
+finish();
+
+// Pour récupérer la valeur dans la MainActivity :
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    // Etre sure que le request code correspond
+    if (requestCode == 1) {
+        // controler que l'activité s'est terminée correctemetn
+        if (resultCode == RESULT_OK) {
+            // récupérer la valeur désirée
+            String requiredValue = data.getStringExtra("emei");
+            emei.setText(requiredValue);
+
+        }
+    }
+}
+```
+
+
+
 ## Question 5
 
 Le problème de cette méthode qui est dépréciée est qu'elle ne pourra pas être utilisé si l'on veut développer une application qui sera disponible sur le store. Comme android demandera d'ici la fin de l'année que l'application soit compilée avec un SDK vieux d'une année au maximum.
