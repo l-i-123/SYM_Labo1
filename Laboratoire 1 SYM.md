@@ -18,7 +18,7 @@ Pour l'utilser on peut la référencer de cette façon :
 R.drawable.xxx
 ```
 
-Dans mon cas la ressource s'est mise dans un dossier drawable. R permet d'accéder au dossier res et xxx doit être remplacer par le nom de l'icon ajouter.
+Dans notre cas la ressource s'est mise dans un dossier drawable. R permet d'accéder au dossier res et xxx doit être remplacer par le nom de l'icon ajouter.
 
 ## Question 3
 
@@ -37,9 +37,9 @@ Ceci nous permet de réagir de la façon que l'on désire sur l'appui du bouton.
 
 ## Question 4
 
-Pour pouvoir récupérer une information dans la seconde activité et la récupérer dans l'activité de départ, il faut d'abord démarrer l'activité en utilisant la  méthode : startActivityForResult() au lieu de startActivity. Cette méthode prend un paramètre supplémentaire nommé "Request code" qui sera retourné lorsque l'on voudra récupérer le résultat.
+Pour pouvoir récupérer une information dans la seconde activité et ensuite la transmettre dans l'activité de départ, il faut d'abord démarrer l'activité en utilisant la  méthode : startActivityForResult() au lieu de startActivity(). Cette méthode prend un paramètre supplémentaire nommé "Request code" qui sera retourné lorsque l'on voudra récupérer le résultat.
 
-Lorsque l'activité principale est reprise, la méthode onActivittyResult() est appelée. On peut donc utiliser cette méthode pour récupérer la valeur transmise par la seconde activité. Cette mthode prend trois paramètres : le request code précédemment défini un code de résultat pour savoir si l'activité s'est terminée correctement ainsi qu'un intend permettant de récupérer les données.
+Lorsque l'activité principale est reprise, la méthode onActivittyResult() est appelée. On peut donc utiliser cette méthode pour récupérer la valeur transmise par la seconde activité. Cette méthode reçoit trois paramètres : le request code précédemment défini un code de résultat pour savoir si l'activité s'est terminée correctement ainsi qu'un intend permettant de récupérer les données.
 
 ## Question 5
 
