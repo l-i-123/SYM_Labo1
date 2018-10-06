@@ -2,6 +2,12 @@
 
 
 
+## Question 1
+
+Pour obtenir un application multilangue, il faut Utiliser l'outil "Translations Editor" d'Android Studio.
+Si la traduction en une langue donné n'est pas disponible, la langue par défaut la remplacera.
+Si une clé donnée ne possède pas de valeur par defaut, la compilation ne se lance pas
+
 ## Question 2
 
 La ressource utilisée dans l'expemple est directement disponible dans le SDK. Pour utiliser une ressource tierce trouvée par exemple sur le site proposé : https://design.google.com/icons/ , il est nécessaire de les importer dans le projet. Pour cela il suffit de drag and drop les ressources dans le dossier app/res/ . Les icones ajoutés sont disponibles dans 6 formats différents pour s'adapter à la taille des différents device cible. 
@@ -43,17 +49,17 @@ La méthode proposée dans la documentation officiel est d'utilisé la méthode 
 
 ## Question 6
 
-Pour créer un nouveau layout spécifique :
+### Pour créer un nouveau layout spécifique 
 
+Pour créer un nouveau layout spécifique, il faut faire un clic droit sur le package "layout" qui se trouve dans le dossier "res" et allé sur "new" -> "Layout resource file".
 
+Après avoir cliqué sur "Layout resource file" une fenêtre dans laquelle on peut définir notre nouveau layout s'ouvre.
 
-Pour qu'il soit utilisé automatiquement à l'utilisation :
+### Pour qu'il soit utilisé automatiquement à l'utilisation
 
+Pour créé la version horizontal du layout "authent", il faut selectionner l'"Available qualifiers" orientation  et lui définir l'orientation "Landscape" dans la fenêtre ouverte au point précédent et lui donner le même nom que le layout "authent".
 
-
-## Question 7
-
-
+Une fois cette étape réaliser le layout "authent" passera automatiquement du premier layout au second en fonction de l'orentation du smartphone.
 
 ## Question 8
 
